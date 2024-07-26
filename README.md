@@ -26,6 +26,7 @@ https://www.mayoclinic.org/diseases-conditions/alzheimers-disease/diagnosis-trea
 Kaggle - Alzheimer's Disease Dataset
 
 Attributes:
+
 ID: Patient ID
 
 Age: Age of the patient
