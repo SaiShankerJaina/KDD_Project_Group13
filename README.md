@@ -49,18 +49,24 @@ Upon loading and inspecting the dataset, the following insights were gathered:
 ### Data Preparation:
 To prepare the Alzheimer’s disease dataset for analysis and modeling, the following steps were taken:
 
-	1.	Loading the Dataset:
-The dataset was loaded from a CSV file.            	2.	Exploratory Data Analysis (EDA):
-	•	Displayed the first few rows, basic information, and basic statistics.
-	•	Checked for missing values and examined the distribution of key features like Age, Gender, and MMSE scores.
-	3.	Handling Missing Values:
-	•	If any missing values were found, strategies such as imputation or removal were employed based on the context.
-	4.	Data Cleaning:
-	•	Ensured that the data types of columns were appropriate.
-	•	Converted categorical variables to numeric codes if necessary using pd.get_dummies() or LabelEncoder.
-	5.	Feature Selection:
-	•	Selected relevant numeric features for pairplot analysis to reduce computational load.
-	•	Used data.select_dtypes(include=['float64', 'int64']) to filter numeric columns for the correlation matrix.
-	6.	Sampling:
-	•	For the pairplot, sampled 10% of the data to make the computation more manageable.
+1.Loading the Dataset:The dataset was loaded from a CSV file.            
+ 
+2.Exploratory Data Analysis (EDA):
+	•Displayed the first few rows, basic information, and basic statistics.
+	•Checked for missing values and examined the distribution of key features like Age, Gender, and MMSE scores.
+ 
+3.Handling Missing Values:
+	•If any missing values were found, strategies such as imputation or removal were employed based on the context.
+	
+4.Data Cleaning:
+	•Ensured that the data types of columns were appropriate.
+	•Converted categorical variables to numeric codes if necessary using pd.get_dummies() or LabelEncoder.
+ 
+5.Feature Selection:
+	•Selected relevant numeric features for pairplot analysis to reduce computational load.
+	•Used data.select_dtypes(include=['float64', 'int64']) to filter numeric columns for the correlation matrix.
+ 
+6.Sampling:
+	•For the pairplot, sampled 10% of the data to make the computation more manageable.
+ 
 Further steps in data preparation and modeling will be detailed in Deliverable 2.
