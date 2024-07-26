@@ -39,12 +39,34 @@ This dataset includes various attributes related to patients with Alzheimer's di
 - *Diagnosis*: Diagnosis group (e.g., healthy, mild cognitive impairment, Alzheimer's disease).
 
 ### Data Understanding and EDA:
-Upon loading and inspecting the dataset, the following insights were gathered:
+Here are the interpretations for the visualizations:
+### 1. Age Distribution
+**Interpretation:**
+The age distribution histogram shows how the ages of patients are distributed within the dataset. The `kde` (kernel density estimate) line provides a smoothed version of the histogram. Peaks in the histogram and KDE indicate the most common age ranges. If the distribution is skewed, it may suggest a bias towards a particular age group within the dataset.
 
-- The dataset consists of multiple features, both numeric and categorical.
-- Initial exploration showed a varied age distribution with a mean around the older age group, which is expected in an Alzheimer's dataset.
-- The gender distribution was relatively balanced.
-- MMSE scores showed a wide range of values, indicating different levels of cognitive impairment among patients.
+### 2. Gender Distribution
+**Interpretation:**
+The gender distribution count plot displays the number of patients of each gender. This helps to understand the gender balance in the dataset. A significant imbalance might suggest that the dataset is not fully representative of the general population.
+
+### 3. MMSE Score Distribution
+**Interpretation:**
+The MMSE (Mini-Mental State Examination) score distribution shows the frequency of various MMSE scores in the dataset. The KDE line provides a smoothed estimate of the distribution. This visualization helps to identify the common range of cognitive scores among patients, which can be useful for understanding the severity distribution of cognitive impairment.
+
+### 4. Pairplot for Numeric Features
+**Interpretation:**
+The pairplot shows pairwise relationships between selected numeric features (Age, BMI, Systolic Blood Pressure, Diastolic Blood Pressure, Total Cholesterol, and MMSE). The diagonal plots show the KDE of each individual feature, while the off-diagonal plots show scatter plots of feature pairs, providing insight into potential correlations or patterns between features.
+
+### 5. Correlation Matrix
+**Interpretation:**
+The correlation matrix heatmap visualizes the Pearson correlation coefficients between numeric features. Values close to 1 or -1 indicate strong positive or negative correlations, respectively. This helps to identify which features are related to each other, providing insights into potential multicollinearity or redundant features.
+
+### 6. MMSE Scores by Diagnosis Group
+**Interpretation:**
+The boxplot shows the distribution of MMSE scores across different diagnosis groups. The boxes represent the interquartile range (IQR), with the line inside the box indicating the median. Whiskers show the range, and any outliers are displayed as individual points. This visualization helps to compare cognitive function (as measured by MMSE) across different diagnostic categories.
+
+### 7. Scatter Plot for SystolicBP vs. DiastolicBP
+**Interpretation:**
+The scatter plot visualizes the relationship between systolic and diastolic blood pressure, with points colored by diagnosis group. This helps to identify any patterns or differences in blood pressure readings across different diagnosis categories. Clusters or trends can indicate how blood pressure varies with different health conditions.
 
 ### Data Preparation:
 To prepare the Alzheimer’s disease dataset for analysis and modeling, the following steps were taken:
