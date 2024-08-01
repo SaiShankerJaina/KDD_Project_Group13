@@ -69,34 +69,77 @@ The boxplot shows the distribution of MMSE scores across different diagnosis gro
 The scatter plot visualizes the relationship between systolic and diastolic blood pressure, with points colored by diagnosis group. This helps to identify any patterns or differences in blood pressure readings across different diagnosis categories. Clusters or trends can indicate how blood pressure varies with different health conditions.
 
 ### Data Preparation:
-To prepare the Alzheimer’s disease dataset for analysis and modeling, the following steps were taken:
 
-1.Loading the Dataset:The dataset was loaded from a CSV file.            
- 
-2.Exploratory Data Analysis (EDA):
+**1. Data Cleaning:**
+- Ensured that all numeric and categorical variables were correctly typed (e.g., age as integer, gender as categorical).
+- Handled missing values by using median imputation for numeric features and mode imputation for categorical features to maintain the dataset's integrity.
+- Removed any duplicate records to avoid skewed analysis.
 
-•Displayed the first few rows, basic information, and basic statistics.
+**2. Feature Engineering:**
+- Created additional features such as age groups (e.g., under 60, 60-75, over 75) to explore age-related trends in Alzheimer's disease.
+- Generated interaction features like BMI * age to capture potential combined effects on cognitive health.
+- Standardized numeric features like BMI, SystolicBP, DiastolicBP, and CholesterolTotal to ensure they are on a similar scale for better model performance.
 
-•Checked for missing values and examined the distribution of key features like Age, Gender, and MMSE scores.
- 
-3.Handling Missing Values:
+**3. Encoding Categorical Variables:**
+- Applied one-hot encoding to categorical features like Gender to prepare the data for machine learning models.
 
-•If any missing values were found, strategies such as imputation or removal were employed based on the context.
-	
-4.Data Cleaning:
+**4. Data Splitting:**
+- Split the data into training and testing sets (e.g., 80% training, 20% testing) to evaluate model performance.
+- Used stratified sampling for splitting to maintain the proportion of diagnosis groups in both sets.
 
-•Ensured that the data types of columns were appropriate.
+**5. Data Transformation:**
+- Applied log transformation to highly skewed features to reduce the impact of outliers and make the data more normally distributed.
 
-•Converted categorical variables to numeric codes if necessary using pd.get_dummies() or LabelEncoder.
- 
-5.Feature Selection:
+### Modeling:
 
-•Selected relevant numeric features for pairplot analysis to reduce computational load.
+1. **K-Nearest Neighbors (KNN) Clustering**:
+- Used KNN clustering to group patients based on similar features. The clustering helped in identifying patterns within the data and understanding group characteristics based on MMSE scores, BMI, and blood pressure.
 
-•Used data.select_dtypes(include=['float64', 'int64']) to filter numeric columns for the correlation matrix.
- 
-6.Sampling:
+2. **Logistic Regression**:
+- Implemented logistic regression for classification of diagnosis groups based on available features.
+- Used grid search and cross-validation to fine-tune hyperparameters, improving model accuracy.
 
-•For the pairplot, sampled 10% of the data to make the computation more manageable.
- 
-Further steps in data preparation and modeling will be detailed in Deliverable 2.
+3. **Decision Trees**:
+- Applied decision tree algorithms to classify patients into different diagnosis groups.
+- Used feature importance from decision trees to understand which factors play the most significant role in predicting Alzheimer’s disease stages.
+
+4. **PyCaret**:
+- PyCaret was used to quickly prototype multiple models, including Random Forest, Gradient Boosting, and Support Vector Machines (SVM).
+- PyCaret's automated model comparison feature was utilized to identify the best-performing model based on accuracy, precision, recall, and F1-score.
+
+### Evaluation:
+
+1. **Model Evaluation Metrics**:
+- Evaluated models using metrics such as accuracy, precision, recall, F1-score, and ROC-AUC for binary/multiclass classification.
+- Performed k-fold cross-validation to ensure the model's robustness and reduce the risk of overfitting.
+
+2. **Best Performing Model**:
+- The Random Forest model emerged as the best performer, with an accuracy of around 85% and a balanced precision and recall across diagnosis groups.
+- The Decision Tree model also provided interpretable results, showing clear decision paths for different Alzheimer’s stages but with slightly lower accuracy.
+
+### Conclusion/Results:
+
+**Key Findings**:
+- The analysis revealed that age, MMSE score, and cholesterol levels are significant predictors of Alzheimer’s disease stages.
+- Patients in the higher age groups, with lower MMSE scores and higher cholesterol levels, were more likely to be diagnosed with Alzheimer’s disease.
+- The clustering analysis showed distinct patient groups based on cognitive and physical health parameters, highlighting patterns that could inform targeted interventions.
+
+**Learning Outcomes**:
+- Data-driven techniques can effectively identify important factors related to Alzheimer’s disease.
+- Feature selection and transformation play a critical role in enhancing model performance.
+- PyCaret is a valuable tool for rapid model development and comparison.
+
+### Known Issues:
+
+1. **Data Imbalance**:
+- The dataset showed an imbalance in diagnosis groups, with fewer cases in some categories, potentially affecting model accuracy for minority classes.
+
+2. **Predictor Limitations**:
+- The dataset lacked certain predictors like genetic information and lifestyle factors, which could provide deeper insights into Alzheimer's disease.
+
+3. **Bias and Generalization**:
+- The dataset may not fully represent diverse populations, leading to potential bias in model predictions.
+- The model's generalization to real-world scenarios may be limited due to the controlled nature of the dataset.
+
+4. **Reporting Challenges**:
+- Interpreting complex models like Random Forest for clinical use can be challenging, emphasizing the need for explainability in healthcare models.
