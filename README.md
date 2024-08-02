@@ -129,17 +129,15 @@ The scatter plot visualizes the relationship between systolic and diastolic bloo
 - Feature selection and transformation play a critical role in enhancing model performance.
 - PyCaret is a valuable tool for rapid model development and comparison.
 
-### Known Issues:
+Results Summary:
 
-1. **Data Imbalance**:
-- The dataset showed an imbalance in diagnosis groups, with fewer cases in some categories, potentially affecting model accuracy for minority classes.
+KNN Cross-Validation Accuracy: 0.7249720821813845 ± 0.019952718083979814
+Logistic Regression Cross-Validation Accuracy: 0.838017021737952 ± 0.05212746897176803
+Random Forest Cross-Validation Accuracy: 0.9301404022334255 ± 0.06426205709841978
+Random Forest Test Accuracy: 0.9372093023255814
+Known Issues:
 
-2. **Predictor Limitations**:
-- The dataset lacked certain predictors like genetic information and lifestyle factors, which could provide deeper insights into Alzheimer's disease.
-
-3. **Bias and Generalization**:
-- The dataset may not fully represent diverse populations, leading to potential bias in model predictions.
-- The model's generalization to real-world scenarios may be limited due to the controlled nature of the dataset.
-
-4. **Reporting Challenges**:
-- Interpreting complex models like Random Forest for clinical use can be challenging, emphasizing the need for explainability in healthcare models.
+1. Potential Bias: The dataset may have class imbalance, leading to biased model performance.
+2. Missing Data: Imputation with mean might not be the best strategy for all features.
+3. Encoding: Label encoding may not preserve ordinal relationships if they exist.
+4. Model Overfitting: Random Forest model might be overfitting if not properly tuned
