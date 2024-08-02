@@ -129,7 +129,7 @@ The scatter plot visualizes the relationship between systolic and diastolic bloo
 - Feature selection and transformation play a critical role in enhancing model performance.
 - PyCaret is a valuable tool for rapid model development and comparison.
 
-Results Summary:
+### Results Summary:
 
 KNN Cross-Validation Accuracy: 0.7249720821813845 ± 0.019952718083979814
 
@@ -139,7 +139,7 @@ Random Forest Cross-Validation Accuracy: 0.9301404022334255 ± 0.064262057098419
 
 Random Forest Test Accuracy: 0.9372093023255814
 
-Known Issues:
+### Known Issues:
 
 1. Potential Bias: The dataset may have class imbalance, leading to biased model performance.
 2. Missing Data: Imputation with mean might not be the best strategy for all features.
