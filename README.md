@@ -132,9 +132,13 @@ The scatter plot visualizes the relationship between systolic and diastolic bloo
 Results Summary:
 
 KNN Cross-Validation Accuracy: 0.7249720821813845 ± 0.019952718083979814
+
 Logistic Regression Cross-Validation Accuracy: 0.838017021737952 ± 0.05212746897176803
+
 Random Forest Cross-Validation Accuracy: 0.9301404022334255 ± 0.06426205709841978
+
 Random Forest Test Accuracy: 0.9372093023255814
+
 Known Issues:
 
 1. Potential Bias: The dataset may have class imbalance, leading to biased model performance.
